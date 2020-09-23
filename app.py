@@ -105,7 +105,6 @@ url_bar_and_content_div = html.Div([
     html.Div(id='page-content')
 ])
 
-    
 ########### Initiate the app
 #external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 #app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
@@ -113,8 +112,9 @@ app = dash.Dash(__name__)
 server = app.server
 app.title="Phanikiran Siddineni"
 
-def home_layout():
-    layout_index = html.Div([
+   
+
+layout_index = html.Div([
             dcc.Store(id="aggregate_data"),
             # empty Div to trigger javascript file for graph resizing
             html.Div(id="output-clientside"),
@@ -162,9 +162,9 @@ def home_layout():
                          
                         
     ])
-    return layout_index
+#    return layout_index
 
-layout_index = home_layout()
+#layout_index = home_layout()
  
 covid_layout = helper.covid_layout
 common_layout = helper.common_layout
@@ -184,6 +184,8 @@ blog_layout = html.Div([
     dcc.Link('Navigate to "/covid19india"', href='/covid19'),
 ])    
 # index layout
+                        
+
 app.layout = url_bar_and_content_div
 
 # "complete" layout
@@ -192,6 +194,10 @@ app.validation_layout = html.Div([
     layout_index,
     covid_layout,
     blog_layout,
+    common_layout,
+    covtab_layout,
+    helper.dokkaseetamma_layout
+    
 ])    
 
 # Index callbacks
@@ -295,5 +301,6 @@ def filter_artiList(cat=[], title=[]):
 def serve_static(resource):
     return flask.send_from_directory(STATIC_PATH, resource)
     
+
 if __name__ == '__main__':
     app.run_server()
