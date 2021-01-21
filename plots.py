@@ -23,7 +23,7 @@ confirmed_trend = stateDf[stateDf['status'] == 'Confirmed']
 recovered_trend = stateDf[stateDf['status'] == 'Recovered']
 
 
-state_ut = list(set(confirmed_trend.columns) - set(['status','tt','date']))
+state_ut = list(set(confirmed_trend.columns) - set(['status','tt','date','dateymd']))
 
 
 caseTimeSeries = pd.DataFrame(resp.json()['cases_time_series'])  # timeseries data

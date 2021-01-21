@@ -54,7 +54,7 @@ def createContainer(title,descr,date,cat,link,imgLink):
                 ),
                     
                     ],
-                    className="mini_container", style={'background-color':clr},
+                    className="mini_container", style={'box-shadow': '2px 2px 2px '+clr+';'},
                     ),
     return cont
 
@@ -141,9 +141,9 @@ layout_index = html.Div([
                     href='/'),
                     
                      html.Div([html.Div(html.H6("Filter Articles By Category/Title"),style={'text-align':'center'},id='filter-text'),
-                        html.Div([html.Div([html.H6("Category")],className='col-md-2'),
+                        html.Div([html.Div([html.H6("Category")],className='col-md-2 text-right'),
                                   html.Div([dcc.Dropdown(options=cat,multi=True,id='cat-filter')],className="col-md-3"),
-                                  html.Div([html.H6("Title")],className='col-md-2'),
+                                  html.Div([html.H6("Title")],className='col-md-2 text-right'),
                                   html.Div([dcc.Dropdown(options=titles,multi=True,id='title-filter')],
                                             className="col-md-4"),],),
     #                    html.Div([html.H6("Title"),dcc.Dropdown(options=titles,multi=True),],className="col-md-6"),

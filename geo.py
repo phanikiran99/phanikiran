@@ -27,7 +27,7 @@ def saveImages():
     stateTotalRecovered =[]
     listStates = []
     for col in stateDf:
-        if col not in ['date','status']:
+        if col not in ['date','status','dateymd']:
             listStates.append(col)
     #         print (col)
             stateTotalConfirmed.append(np.sum(stateDfConfirmed[col].apply(lambda x: int(x))))
